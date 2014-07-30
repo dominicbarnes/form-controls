@@ -1,0 +1,27 @@
+{
+  "name": "form-controls",
+  "repository": "dominicbarnes/form-controls",
+  "version": "0.0.1",
+  "license": "MIT",
+  "keywords": [
+    "form",
+    "fieldset",
+    "controls"
+  ],
+  "dependencies": {
+    "timoxley/to-array": "*"
+  },
+  "development": {
+    "dependencies": {
+      "component/assert": "*",
+      "component/domify": "*",
+      "dominicbarnes/form-element": "*"
+    },
+    "templates": [
+      "test/form.html"
+    ]
+  },
+  "scripts": [
+    "index.js"
+  ]
+}
