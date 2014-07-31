@@ -9,7 +9,7 @@
     "controls"
   ],
   "dependencies": {
-    "timoxley/to-array": "*"
+    "timoxley/to-array": "^0.2.1"
   },
   "development": {
     "dependencies": {
