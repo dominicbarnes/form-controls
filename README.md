@@ -1,5 +1,13 @@
 # form-controls
 
+[![npm][npm-image]][npm-url]
+[![travis][travis-image]][travis-url]
+
+[npm-image]: https://img.shields.io/npm/v/form-controls.svg?style=flat-square
+[npm-url]: https://www.npmjs.com/package/form-controls
+[travis-image]: https://img.shields.io/travis/dominicbarnes/form-controls.svg?style=flat-square
+[travis-url]: https://travis-ci.org/dominicbarnes/form-controls
+
 A helper for retrieving all of the controls for a given root element.
 
 

@@ -1,8 +1,8 @@
 var assert = require("assert");
 var domify = require("domify");
-var formControls = require("form-controls");
+var formControls = require("..");
 var formElement = require("form-element");
-var form = domify(require("form-controls/test/form.html"));
+var form = domify(require("../test/form.html"));
 
 
 describe("controls(root)", function () {
