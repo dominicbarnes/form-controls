@@ -5,10 +5,10 @@
   "author": "Dominic Barnes",
   "bugs": "https://github.com/dominicbarnes/form-controls/issues",
   "dependencies": {
-    "form-element": "kvnneff/form-element#npm",
     "to-array": "^0.1.4"
   },
   "devDependencies": {
+    "form-element": "kvnneff/form-element#npm",
     "domify": "^1.4.0",
     "duo-test": "^0.4.1",
     "duo-tester": "^0.1.1",
