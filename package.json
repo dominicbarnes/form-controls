@@ -1,15 +1,34 @@
 {
-  "name": "dominicbarnes-form",
+  "name": "form-controls",
+  "description": "A helper for retrieving all of the controls for a given root element.",
   "version": "0.0.2",
+  "author": "Dominic Barnes",
+  "bugs": "https://github.com/dominicbarnes/form-controls/issues",
   "dependencies": {
-    "component": "1",
-    "component-test": "*"
+    "to-array": "^0.1.4"
   },
+  "devDependencies": {
+    "form-element": "kvnneff/form-element#npm",
+    "domify": "^1.4.0",
+    "duo-test": "^0.4.1",
+    "duo-tester": "^0.1.1",
+    "mochify": "^2.13.0",
+    "stringify": "^3.1.0"
+  },
+  "homepage": "https://github.com/dominicbarnes/form-controls",
+  "keywords": [
+    "browser",
+    "controls",
+    "form",
+    "html"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "repository": "https://github.com/dominicbarnes/form-controls.git",
   "scripts": {
-    "postinstall": "component install --dev",
-    "build": "component build --dev",
-    "pretest": "npm run build",
-    "test": "component test phantom",
-    "start": "component test browser"
+    "start": "duo-tester browser",
+    "test": "npm run test-duo && npm run test-node",
+    "test-duo": "duo-tester phantomjs",
+    "test-node": "mochify --transform stringify"
   }
 }

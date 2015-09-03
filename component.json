@@ -12,14 +12,9 @@
     "timoxley/to-array": "^0.2.1"
   },
   "development": {
-    "dependencies": {
-      "component/assert": "*",
-      "component/domify": "*",
-      "dominicbarnes/form-element": "*"
-    },
-    "templates": [
-      "test/form.html"
-    ]
+    "component/assert": "*",
+    "component/domify": "*",
+    "dominicbarnes/form-element": "*"
   },
   "scripts": [
     "index.js"
