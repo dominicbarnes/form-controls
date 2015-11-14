@@ -1,16 +1,16 @@
-// dependencies
-var toArray = require("to-array");
+
+var toArray = require('to-array');
 
 var bruteForce = [
-    "button",
-    "fieldset",
-    "input",
-    "keygen",
-    "object",
-    "output",
-    "select",
-    "textarea"
-].join(",");
+  'button',
+  'fieldset',
+  'input',
+  'keygen',
+  'object',
+  'output',
+  'select',
+  'textarea'
+].join(',');
 
 
 /**
@@ -21,15 +21,24 @@ var bruteForce = [
  * retrieves the valid "listed controls" is used.
  *
  * @see http://www.w3.org/TR/html5/forms.html#category-listed
- *
- * @param  {HTMLElement} root
- * @returns {Array:HTMLElement}
+ * @param  {HTMLElement} root  The root element to search.
+ * @return {Array}
  */
-
 module.exports = function (root) {
-    if (!root) {
-        throw new TypeError("a root element is required");
-    }
+  if (!isElement(root)) {
+    throw new TypeError('a root element is required');
+  }
 
-    return toArray(root.elements || root.querySelectorAll(bruteForce));
+  return toArray(root.elements || root.querySelectorAll(bruteForce));
 };
+
+/**
+ * Helper for determining if a value is an HTML element.
+ *
+ * @param {HTMLElement} el  The value to check.
+ * @return {Boolean}
+ */
+function isElement(el) {
+  if (!el) return false;
+  return el.nodeType === 1;
+}

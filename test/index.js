@@ -1,54 +1,52 @@
-var assert = require("assert");
-var domify = require("domify");
-var formControls = require("form-controls");
-var formElement = require("form-element");
-var form = domify(require("form-controls/test/form.html"));
 
+var assert = require('assert');
+var control = require('form-control');
+var controls = require('..');
+var form = document.getElementById('form');
 
-describe("controls(root)", function () {
-    it("should return an array", function () {
-        var controls = formControls(form);
-        assert(Array.isArray(controls));
+describe('controls(root)', function () {
+  after(function () {
+    form.parentNode.removeChild(form);
+  });
+
+  it('should return the expected number of elements', function () {
+    var els = controls(form);
+    assert.strictEqual(els.length, 6);
+  });
+
+  it('should return the elements in the proper order', function () {
+    var els = controls(form);
+
+    assert.strictEqual(els[0], control(form, 'username'));
+    assert.strictEqual(els[1], control(form, 'password'));
+    assert.strictEqual(els[2], control(form, 'group1'));
+    assert.strictEqual(els[3], control(form, 'input1'));
+    assert.strictEqual(els[4], control(form, 'input2'));
+    assert.strictEqual(els[5], control(form, 'input3'));
+  });
+
+  it('should work with a <fieldset>', function () {
+    var fieldset = control(form, 'group1');
+    var els = controls(fieldset);
+
+    assert.strictEqual(els.length, 3);
+    assert.strictEqual(els[0], control(fieldset, 'input1'));
+    assert.strictEqual(els[1], control(fieldset, 'input2'));
+    assert.strictEqual(els[2], control(fieldset, 'input3'));
+  });
+
+  it('should work with an arbitrary element', function () {
+    var div = document.getElementById('test');
+    var els = controls(div);
+
+    assert.strictEqual(els.length, 2);
+    assert.strictEqual(els[0], control(div, 'input2'));
+    assert.strictEqual(els[1], control(div, 'input3'));
+  });
+
+  it('should throw when no root element is present', function () {
+    assert.throws(function () {
+      controls(null);
     });
-
-    it("should return the expected number of elements", function () {
-        var controls = formControls(form);
-        assert(controls.length === 6);
-    });
-
-    it("should return the elements in the proper order", function () {
-        var controls = formControls(form);
-
-        assert(controls[0], formElement(form, "username"));
-        assert(controls[1], formElement(form, "password"));
-        assert(controls[2], formElement(form, "group1"));
-        assert(controls[3], formElement(form, "input1"));
-        assert(controls[4], formElement(form, "input2"));
-        assert(controls[5], formElement(form, "input3"));
-    });
-
-    it("should work with a <fieldset>", function () {
-        var fieldset = formElement(form, "group1");
-        var controls = formControls(fieldset);
-
-        assert(controls.length === 3);
-        assert(controls[0], formElement(fieldset, "input1"));
-        assert(controls[1], formElement(fieldset, "input2"));
-        assert(controls[2], formElement(fieldset, "input3"));
-    });
-
-    it("should work with an arbitrary element", function () {
-        var div = form.querySelector("#test");
-        var controls = formControls(div);
-
-        assert(controls.length === 2);
-        assert(controls[0], formElement(div, "input2"));
-        assert(controls[1], formElement(div, "input3"));
-    });
-
-    it("should throw when no root element is present", function () {
-        assert.throws(function () {
-            formControls(null);
-        });
-    });
+  });
 });

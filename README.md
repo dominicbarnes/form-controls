@@ -1,7 +1,11 @@
 # form-controls
 
-A helper for retrieving all of the controls for a given root element.
+[![npm version](https://img.shields.io/npm/v/form-controls.svg)](https://www.npmjs.com/package/form-controls)
+[![npm dependencies](https://img.shields.io/david/dominicbarnes/form-controls.svg)](https://david-dm.org/dominicbarnes/form-controls)
+[![npm dev dependencies](https://img.shields.io/david/dev/dominicbarnes/form-controls.svg)](https://david-dm.org/dominicbarnes/form-controls#info=devDependencies)
+[![build status](https://img.shields.io/travis/dominicbarnes/form-controls.svg)](https://travis-ci.org/dominicbarnes/form-controls)
 
+A helper for retrieving all of the controls for a given root element.
 
 ## Usage
 
@@ -14,8 +18,8 @@ A helper for retrieving all of the controls for a given root element.
 ```
 
 ```js
-var controls = require("form");
-var el = document.querySelector("#my-form");
+var controls = require('form-controls');
+var el = document.querySelector('#my-form');
 
 controls(el);
 // => [
