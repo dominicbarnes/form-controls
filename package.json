@@ -1,6 +1,6 @@
 {
   "name": "form-controls",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "A cross-browser helper for retrieving all controls in a form",
   "author": "Dominic Barnes <dominic@dbarnes.info>",
   "repository": "dominicbarnes/form-controls",
